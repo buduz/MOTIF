@@ -1,0 +1,70 @@
+stage1:
+  class_name: MOTIFStage1
+  state_dim: 8
+  model_dim: 256
+  latent_dim: 256
+  codebook_size: 128
+  window_size: ${window_size}
+  depth_enc: 4
+  depth_dec: 4
+  depth_enc_low: 0
+  depth_dec_low: 0
+  downsample_factor: 2
+  num_heads: 8
+  dropout: 0.1
+  local_w: ${local_w}
+  use_sinusoidal_pe: false
+  vq_beta: 0.25
+
+stage2:
+  class_name: MOTIFStage2
+  vq_vae_ckpt: null
+  model_dim: 512
+  perceiver_depth: 6
+  perceiver_heads: 8
+  perceiver_dim_head: 64
+  perceiver_max_tokens: 1000
+
+stage3:
+  class_name: MOTIFStage3
+  mkl_cfg: ${models.stage2}
+  mkl_ckpt: null
+  add_latent_action: ${add_latent_action}
+  flow_matching_cfg:
+    action_horizon: 16
+    add_pos_embed: true
+    backbone_embedding_dim: 512
+    add_latent_action: ${add_latent_action}
+    latent_action_dim: ${models.stage1.latent_dim}
+    diffusion_model_cfg:
+      attention_head_dim: 64
+      cross_attention_dim: 512
+      dropout: 0.2
+      final_dropout: true
+      interleave_self_attention: true
+      norm_type: ada_norm
+      num_attention_heads: 8
+      num_layers: 16
+      output_dim: 512
+      positional_embeddings: null
+    max_num_embodiments: 10
+    hidden_size: 512
+    input_embedding_dim: 512
+    max_action_dim: 10
+    max_state_dim: 10
+    noise_beta_alpha: 1.5
+    noise_beta_beta: 1.0
+    noise_s: 0.999
+    num_inference_timesteps: 4
+    num_timestep_buckets: 1000
+    tune_diffusion_model: true
+    tune_projector: true
+    use_vlln: true
+    vl_self_attention_cfg:
+      attention_head_dim: 64
+      dropout: 0.2
+      final_dropout: true
+      num_attention_heads: 8
+      num_layers: 4
+      positional_embeddings: null
+

@@ -1,0 +1,27 @@
+dataset_path:
+  - ./demo_data_processed/arx5
+  - ./demo_data_processed/piper
+embodiment_tag:
+  - arx5_real_rel
+  - piper_real_rel
+data_config:
+  - arx5_real_rel
+  - piper_real_rel
+video_backend:
+  - torchcodec    # torchvision_av
+  - torchcodec
+modifiy_tasks_num: 
+  - null
+  - null
+
+window_size: ${window_size}
+sampling_weights: null
+batch_size: ${batch_size}
+num_workers: 8
+pin_memory: false
+drop_last: true
+persistent_workers: false
+shuffle: true
+balance_tasks: ${balance_tasks}
+collator:
+  normalize_images: true

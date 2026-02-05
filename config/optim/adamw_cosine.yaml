@@ -1,0 +1,32 @@
+stage1:
+  lr: 1e-4
+  weight_decay: 0.01
+  beta1: 0.9
+  beta2: 0.999
+  eps: 1e-8
+  min_lr: 1e-8
+  T_max_factor: 1.0
+  warmup_ratio: 0.05
+  warmup_lr: 1e-9
+
+stage2:
+  lr: 1e-4
+  weight_decay: 0.01
+  beta1: 0.9
+  beta2: 0.999
+  eps: 1e-8
+  min_lr: 1e-8
+  T_max_factor: 1.0
+  warmup_ratio: 0.05
+  warmup_lr: 1e-9
+
+stage3:
+  lr: 1e-4
+  weight_decay: 0.01  
+  beta1: 0.9
+  beta2: 0.999
+  eps: 1e-8
+  min_lr: 1e-8
+  T_max_factor: 1.0
+  warmup_ratio: 0.05
+  warmup_lr: 1e-9
