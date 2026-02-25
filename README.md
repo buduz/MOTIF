@@ -14,7 +14,7 @@ The codebase builds on and refactors from [NVIDIA/Isaac-GR00T](https://github.co
 
 ## 🔗 Links
 <!-- - 🚀 **Project Page** (Coming soon) -->
-- 📄 **Paper** (Coming soon)
+- 📄 [**MOTIF**](https://arxiv.org/abs/2602.13764)
 
 ## ✍️ Authors
 Heng Zhi, Wentao Tan, Lei Zhu, Fengling Li, Jingjing Li, Guoli Yang, Heng Tao Shen  
@@ -42,11 +42,11 @@ cd MOTIF
 conda create -n motif python=3.10.16
 conda activate motif
 
-conda install ffmpeg -c conda-forge
+conda install ffmpeg=7.1.1 -c conda-forge
 pip install -r requirements.txt
 
 # FlashAttention (CUDA 12.4 & PyTorch 2.6)
-pip install flash_attn==2.7.4.post1 # https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1+cu12torch2.6cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
+pip install flash_attn==2.7.4.post1 # wget https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1+cu12torch2.6cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
 pip install -e .
 ```
 
@@ -187,5 +187,10 @@ This project builds upon the following open-source projects:
 If you find this repository useful, please consider citing our work:
 
 ```bibtex
-
+@article{motif,
+  title={MOTIF: Learning Action Motifs for Few-shot Cross-Embodiment Transfer},
+  author={Zhi, Heng and Tan, Wentao and Zhu, Lei and Li, Fengling and Li, Jingjing and Yang, Guoli and Shen, Heng Tao},
+  journal={arXiv preprint arXiv:2602.13764},
+  year={2026}
+}
 ```
